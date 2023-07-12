@@ -5,22 +5,33 @@ const list = document.querySelector(".toDoList");
 const buttonClear = document.querySelector('#clear-list');
 let arrayOfTasks = [];
 
+document.addEventListener('DOMContentLoaded', (ev) => {
+    arrayOfTasks = JSON.parse(window.localStorage.getItem('tasks'));
+    if (arrayOfTasks) {
+        if (arrayOfTasks.length > 0) {
+            arrayOfTasks.forEach(el => { addTaskToDOM(el); });
+            buttonClear.disabled = false;
+        }
+    }
+})
+
 form.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    //create new task object
+    arrayOfTasks = window.localStorage.getItem('tasks');
+    arrayOfTasks = arrayOfTasks ? JSON.parse(arrayOfTasks) : [];
     let task = createTask();
     addTaskToDOM(task);
     arrayOfTasks.push(task);
-    console.log(arrayOfTasks);
+    window.localStorage.setItem('tasks', JSON.stringify(arrayOfTasks));
     buttonClear.disabled = false;
     form.reset();
 });
 
 buttonClear.addEventListener('click', () => {
-    while (arrayOfTasks.length !== 0) arrayOfTasks.pop();
+    arrayOfTasks = [];
     list.innerHTML = '';
+    window.localStorage.setItem('tasks', JSON.stringify(arrayOfTasks));
     buttonClear.disabled = true;
-    console.log(arrayOfTasks);
 })
 
 const createTask = () => {
