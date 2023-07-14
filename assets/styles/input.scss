@@ -98,6 +98,8 @@ body {
 .toDoList {
   text-align: left;
   font-weight: bold;
+  max-width: 400px;
+  margin: 0 auto;
   div {
     position: relative;
     padding: 0.5rem;
