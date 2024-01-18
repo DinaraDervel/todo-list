@@ -1,6 +1,6 @@
 <h1>Simple Todo List</h1>
 
-This is a straightforward todo list application that enables users to add tasks to a list and delete the entire list. Implemented using JavaScript, CSS, and HTML, the application utilizes local storage for data persistence.
+This is a straightforward todo list application that enables users to add tasks to a list and delete the entire list. Implemented using JavaScript, SCSS, and HTML, the application utilizes local storage for data persistence.
 
 <h2>Features:</h2>
 <ul>
